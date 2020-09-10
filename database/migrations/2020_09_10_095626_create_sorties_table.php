@@ -19,7 +19,7 @@ class CreateSortiesTable extends Migration
             $table->string('titre', 100)->nullable();
             $table->date('jour')->nullable();
             $table->string('description', 1000)->nullable();
-
+            $table->string('lieu', 50)->nullable();
         });
     }
 
