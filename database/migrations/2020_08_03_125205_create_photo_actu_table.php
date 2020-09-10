@@ -16,6 +16,8 @@ class CreatePhotoActuTable extends Migration
         Schema::create('photo_actu', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('id_actu');
+            $table->string('chemin_photo')->nullable();
         });
     }
 

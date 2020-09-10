@@ -2,9 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\User;
 use Closure;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
-class admin
+class admin extends Middleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +18,13 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (Auth::check() && Auth::User()->admin === 1)
+        {
+            return $next($request);
+        }
+        else
+        {
+            return redirect()->to('/');
+        }
     }
 }

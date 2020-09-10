@@ -15,6 +15,8 @@ class CreatePartenairesTable extends Migration
     {
         Schema::create('partenaires', function (Blueprint $table) {
             $table->id();
+            $table->string('lien_image', 20);
+            $table->string('lien_site', 100);
             $table->timestamps();
         });
     }

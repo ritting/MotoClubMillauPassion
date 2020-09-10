@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReglementTable extends Migration
+class CreatePhotoSortiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateReglementTable extends Migration
      */
     public function up()
     {
-        Schema::create('reglement', function (Blueprint $table) {
+        Schema::create('photo_sorties', function (Blueprint $table) {
             $table->id();
-            $table->string('article', 100)->nullable();
-            $table->string('texte', 3000)->nullable();
             $table->timestamps();
+            $table->foreignId('id_sorties');
+            $table->string('chemin_photo')->nullable();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateReglementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reglement');
+        Schema::dropIfExists('photo_sorties');
     }
 }

@@ -3,20 +3,18 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        @foreach($user as $use)
-            <p>Bienvenue {{$use->name}}</p>@endforeach
+
+            <p>Bienvenue {{Auth::user()->name}}</p>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Vous êtes connecté !') }}
                 </div>
             </div>
         </div>

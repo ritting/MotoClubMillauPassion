@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests\newsRequest;
+use App\DAO\ActuDAO;
+use App\DAO\PhotoActuDAO;
 
-class GestionActuController extends Controller
+//this controller is for add a new actu, only the admins can use it
+class AjoutActuController extends Controller
 {
+    private $actuDAO;
+    private $photoActuDAO;
+
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
+        $this->actuDAO = new ActuDAO();
+        $this->photoActuDAO = new PhotoActuDAO();
     }
 
     public function index()
@@ -20,51 +28,42 @@ class GestionActuController extends Controller
 
     public function store(newsRequest $request)
     {
-
-        if (isset($_POST['modifier']))
+        //add text
+        if (isset($_POST['ajouter']))
         {
-            if(isset($request->photo))
-            {
-                //GERER LA SUPPRESSION DES ANCIENNES IMAGES LORS DE LA MISE EN PRODUCTION
-                //unlink('img/' . $request->input('cheminphoto'));
-
-                $imageName = $request->email . '.' . $request->photo->extension();
-                //envoi de l'image dans le www
-                $request->file('photo')->move('img/user/', $imageName);
-            }else
-            {
-                $imageName = $request->chemin_photo;
-            }
-
-
-            //DB::connection()->enableQueryLog();
-            DB::table('users')->where('id', '=' , $request->input('id'))->update(
-                [
-                    'name' => $request->input('name'),
-                    'name_v' =>   $request->input('name_v') != 1 ? 0 : 1,
-                    'email' =>  $request->input('email'),
-                    'email_v' =>  $request->input('email_v') != 1 ? 0 : 1,
-                    'adresse' =>   $request->input('adresse'),
-                    'code_postal' =>  $request->input('code_postal'),
-                    'ville' => $request->input('ville'),
-                    'adresse_v' => $request->input('adresse_v') != 1 ? 0 : 1,
-                    'telephone' => $request->input('telephone'),
-                    'telephone_v' => $request->input('telephone_v') != 1 ? 0 : 1,
-                    'chemin_photo' => $imageName,
-                    'photo_v' => $request->input('photo_v') != 1 ? 0 : 1,
-                    'date_de_naissance' => $request->input('date_de_naissance'),
-                    'date_de_naissance_v' => $request->input('date_de_naissance_v') != 1 ? 0 : 1,
-                ]
-            );
-            //$queries = DB::getQueryLog();
-            //var_dump($queries);
-            return redirect('gestionProfil')->with('sukces', 'Profil mis à jour.');
-        }
-        elseif (isset($_POST['supprimer']))
+            $id = $this->actuDAO->insertActu($request);
+        }elseif(isset($_POST['modifier']))
         {
-            DB::table('users')->where('id', '=' , $request->input('id'))->delete();
-            return view('welcome');
+            $id = $request->input('id');
+            $this->actuDAO->updateActu($request);
         }
-
+        //add pictures
+        if(isset($request->photo0)){
+            usleep(850000);
+            $name = time() . $request->photo0->extension();
+            $this->photoActuDAO->insertPhoto($id, $name);
+            $request->file('photo0')->move('img/actu/', $name);
+        }
+        if(isset($request->photo1)){
+            usleep(850000);
+            $name = time() . $request->photo1->extension();
+            $this->photoActuDAO->insertPhoto($id, $name);
+            $request->file('photo1')->move('img/actu/', $name);
+        }
+        if(isset($request->photo2)){
+            usleep(850000);
+            $name = time() . $request->photo2->extension();
+            $this->photoActuDAO->insertPhoto($id, $name);
+            $request->file('photo2')->move('img/actu/', $name);
+        }
+        if(isset($request->photo3)){
+            usleep(850000);
+            $name = time() . $request->photo3->extension();
+            $this->photoActuDAO->insertPhoto($id, $name);
+            $request->file('photo3')->move('img/actu/', $name);
+        }
+        return redirect('actu');
     }
+
+
 }

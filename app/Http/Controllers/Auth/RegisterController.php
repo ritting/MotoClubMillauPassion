@@ -53,6 +53,13 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'adresse' => ['required', 'string', 'max:255'],
+            'code_postal' => ['required', 'digits:5'],
+            'ville' => ['required', 'string', 'max:50'],
+            'telephone' => ['required', 'digits:10'],
+            'date_de_naissance' => ['required'],
+            'ville_natale' => ['required'],
+            'categorie' => ['required'],
         ]);
     }
 
@@ -64,10 +71,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $name = !isset($data['name_v'])? 0 : 1;
+        $email = !isset($data['email_v']) ? 0 : 1;
+        $adresse = !isset($data['adresse_v']) ? 0 : 1;
+        $telephone = !isset($data['telephone_v']) ? 0 : 1;
+        $date = !isset($data['date_de_naissance_v']) ? 0 : 1;
+        var_dump($data);
         return User::create([
             'name' => $data['name'],
+            'name_v' => $name,
             'email' => $data['email'],
+            'email_v' => $email,
             'password' => Hash::make($data['password']),
+            'adresse' => $data['adresse'],
+            'code_postal' => $data['code_postal'],
+            'ville' => $data['ville'],
+            'adresse_v' => $adresse,
+            'telephone' => $data['telephone'],
+            'telephone_v' => $telephone,
+            'date_de_naissance' => $data['date_de_naissance'],
+            'date_de_naissance_v' => $date,
+            'ville_natale' => $data['ville_natale'],
+            'categorie' => $data['categorie'],
         ]);
     }
 }

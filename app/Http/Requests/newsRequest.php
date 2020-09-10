@@ -13,7 +13,7 @@ class newsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class newsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+                'photo' => 'mimes:jpeg,png,jpg,gif,svg|max:4048',
         ];
     }
 }

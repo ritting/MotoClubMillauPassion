@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Http\Requests\newsRequest;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = DB::table('users')->get();
-        return view('home', compact('user'));
+        return view('home');
     }
+
+    public function redirectWelcome()
+    {
+        return view('welcome');
+    }
+
+    public function store(newsRequest $request)
+    {
+
+        //exemple de requete :
+        $user_name = $request->input('name');
+        $result = DB::table('news')->updateOrInsert(['name'=>$request->input('name')]);
+    }
+
+
 }

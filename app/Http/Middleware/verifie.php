@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class verifie
 {
@@ -15,6 +16,14 @@ class verifie
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (Auth::check() && Auth::User()->admin)
+        {
+            return $next($request);
+        }
+        else
+        {
+            echo 'Vous n\'êtes pas encore menbre du club';
+            return redirect()->to('/');
+        }
     }
 }
