@@ -37,7 +37,7 @@
             </div><!-- end col -->
             <div class="col-md-6">
                 <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1432.5862317590925!2d3.0525794158690704!3d44.10043325307049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8ad5358f4e1c0862!2sMOTO%20CLUB%20MILLAU%20PASSION%20AVEYRON%2012!5e0!3m2!1sfr!2sfr!4v1597394704054!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                    <p>Moto Club Millau Passion</p>
+                    <iframe style="width: 100%; height: auto" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1432.5862317590925!2d3.0525794158690704!3d44.10043325307049!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8ad5358f4e1c0862!2sMOTO%20CLUB%20MILLAU%20PASSION%20AVEYRON%2012!5e0!3m2!1sfr!2sfr!4v1597394704054!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                    <p>Moto Club Millau Passion</p>
                     <p>95 Rue Molière</p>
                     <p>12100 Millau</p>
                     <p>mcmp12100@gmail.com</p>

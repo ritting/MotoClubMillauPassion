@@ -15,6 +15,8 @@ class CreateBenevolesTable extends Migration
     {
         Schema::create('benevoles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->foreignId('sorties_id');
             $table->timestamps();
         });
     }

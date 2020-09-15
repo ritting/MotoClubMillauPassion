@@ -22,7 +22,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+{{--        //i added fixed-top class for keep the menu while scrolling--}}
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Moto Club Millau Passion') }}
@@ -73,7 +74,8 @@
                 </div>
             </div>
         </nav>
-
+{{--        //the <br> are for let a space between the menu bar--}}
+        <br><br><br>
         <main class="py-4">
             @yield('content')
         </main>

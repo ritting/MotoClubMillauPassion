@@ -24,12 +24,12 @@
                     <div class="row">
                         <div class="col-md-4">
                         </div>
-                        <div class="btn-group btn-group-lg mb-4" role="group" aria-label="Basic example">
-                            <h2><a class="btn btn-success"
-                                   href="details/{{$actu->id}}">Détails</a>
-                            </h2><br>
 
-                            @if((Auth::check() && Auth::User()->admin === 1))
+                            <div class="btn-group btn-group-lg mb-4" role="group" aria-label="Basic example">
+                                <h2><a class="btn btn-success"
+                                       href="details/{{$actu->id}}">Détails</a>
+                                </h2><br>
+                                @if((Auth::check() && Auth::User()->admin === 1))
                                 <form method="POST" action="{{ route('actuGoModifier') }}"
                                       enctype="multipart/form-data">
                                     @csrf
@@ -53,14 +53,16 @@
                                         {{ __('Supprimer') }}
                                     </button>
                                 </form>
-                        </div>
+                            </div>
                         @endif
                     </div>
                 </div>
             </div>
-            <br><hr><br>
+            <br>
+            <hr><br>
     </div>
-    <br><hr><br>
+    <br>
+    <hr><br>
     @endforeach
     <div class="row">
         <div class="col-md-4">

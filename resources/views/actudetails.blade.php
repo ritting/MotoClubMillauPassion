@@ -65,7 +65,7 @@
                             <?php $nb1 = 0; ?>
                             @foreach($listphoto as $photo)
                                 <div class="carousel-item @if($nb1 === 0)active @endif">
-                                    <img class="d-block w-100" src="../img/actu/{{$photo->getChemin_photo()}}"
+                                    <img class="d-block w-100" src="/img/actu/{{$photo->getChemin_photo()}}"
                                          style="height:auto; width:100%; margin: 1em auto">
                                     <div class="carousel-caption">
                                     </div>

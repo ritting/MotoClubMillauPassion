@@ -46,8 +46,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea rows="5" id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description">
-                                        @if(isset($actu)){{$actu->getDescription()}}@endif</textarea>
+                                    <textarea rows="5" id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description">@if(isset($actu)){{$actu->getDescription()}}@endif</textarea>
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

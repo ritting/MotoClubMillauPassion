@@ -82,11 +82,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    MOTO CLUB MILLAU PASSION
+                    <img style="height: auto; width: 100%;"  src="../img/divers/acceuil.jpg">
                 </div>
 
                 <div class="links">
                     <a href="{{route('actu')}}">Actualités</a>
+                    <a class="nav-link" href="{{ url('/sorties') }}">Sorties</a>
                     <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
                     @if(Auth::check() && Auth::User()->verifie === 1)<a class="nav-link" href="{{ url('/menbres') }}">Menbres</a>@endif
                     <a class="nav-link" href="{{ url('/reglement') }}">Règlement</a>

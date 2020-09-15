@@ -11,7 +11,7 @@
                     <div class="col-md-12">
                         <img src="../img/divers/logo.jpg"
                              style="height:auto; width:100%; margin: 1em auto">
-                        <p>Aveyron Moto Club Millau Passion, propose des sorties motos, cyclos, solex, sur un ou
+                        <p style="text-align: justify">Aveyron Moto Club Millau Passion, propose des sorties motos, cyclos, solex, sur un ou
                             plusieurs jours et les dimanches.
                             L'adhésion est obligatoire au moto club pour profiter des animations. Notre Moto Club
                             Millavois reste à votre écoute.</p>
