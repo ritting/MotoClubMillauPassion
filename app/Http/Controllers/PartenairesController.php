@@ -34,7 +34,15 @@ class PartenairesController extends Controller
         {
             $lien_image = time() . $request->photo->extension();
             $request->file('photo')->move('img/partenaires/', $lien_image);
-            $this->partenairesDAO->insert($lien_image, $request->input('lien'));
+            if(Empty($request->input('lien')))
+            {
+                $lien = 'pas_de_lien';
+            }
+            else
+            {
+                $lien = $request->input('lien');
+            }
+            $this->partenairesDAO->insert($lien_image, $lien);
             $partenaires = $this->partenairesDAO->get();
             return view('partenaires', compact('partenaires'));
         }

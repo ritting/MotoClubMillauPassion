@@ -10,7 +10,7 @@ class SortiesDAO
 
     public function getAllSorties()
     {
-        $sorties = DB::table('sorties')->orderBy('id', 'desc')->paginate(5);;
+        $sorties = DB::table('sorties')->orderBy('id', 'desc')->paginate(5);
         return $sorties;
     }
 

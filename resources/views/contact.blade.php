@@ -41,6 +41,7 @@
                     <p>95 Rue Molière</p>
                     <p>12100 Millau</p>
                     <p>mcmp12100@gmail.com</p>
+                    <p>06 16 11 12 86</p>
                 </div>
             </div><!-- end col -->
         </div><!-- end row -->

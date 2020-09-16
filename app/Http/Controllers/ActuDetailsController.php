@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class ActuDetailsController extends Controller
 {
     protected $actuDAO;
+    protected $PhotoActuDAO;
 
     public function __construct()
     {

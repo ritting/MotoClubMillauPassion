@@ -8,6 +8,13 @@ use DB;
 
 class PhotoActuDAO
 {
+    //this function is for photos pages
+    public function getPhotos()
+    {
+        return DB::table('photo_actu')->whereNotIn('id_actu', function($q){
+            $q->select('id')->from('actu')->where('prive', '=', 1);
+        })->inRandomOrder()->paginate(10);
+    }
 
     public function getPhotoById($id)
     {

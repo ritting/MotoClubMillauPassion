@@ -16,7 +16,10 @@
                         <div class="col-md-12">
                             <br>
                             <h2>{{$sortie->titre}}<br></h2>
+                            @if(isset($sortie->photo->chemin_photo))
                             <img class="d-block w-100" src="/img/sorties/{{$sortie->photo->chemin_photo}}" style="height:auto; width:100%; margin: 1em auto">
+                            @endif
+{{--                            <img class="d-block w-100" src="/img/sorties/{{$sortie->photo->chemin_photo}}" style="height:auto; width:100%; margin: 1em auto">--}}
                                 <h4>On se retrouve le : {{strftime("%A %d %B %Y", strtotime($sortie->jour))}}</h4><br>
                                 <h4>On ira a : {{$sortie->lieu}}</h4>
                                 <p>{{substr($sortie->description, 0, 100)}}...</p>

@@ -74,3 +74,5 @@ Route::get('sortiedetails/{id}', 'SortiedetailsController@getSortieById')->name(
 Route::post('sortiedetails', 'SortiedetailsController@deletePhoto')->name('sortiedetails');
 
 Route::post('sortiegestion', 'SortiedetailsController@gestion')->name('sortiegestion');
+
+Route::get('photos', 'PhotosController@index')->name('photos');

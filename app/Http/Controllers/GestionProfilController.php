@@ -58,7 +58,6 @@ class GestionProfilController extends Controller
         }
 
         if (isset($_POST['modifier'])) {
-            var_dump('test2');
             if (isset($request->photo)) {
                 //GERER LA SUPPRESSION DES ANCIENNES IMAGES LORS DE LA MISE EN PRODUCTION
                 //unlink('img/' . $request->input('cheminphoto'));
@@ -69,7 +68,7 @@ class GestionProfilController extends Controller
             } else {
                 $imageName = $request->chemin_photo;
             }
-            DB::connection()->enableQueryLog();
+//            DB::connection()->enableQueryLog(); //database debug
             DB::table('users')->where('id', '=', $request->input('id'))->update(
                 [
                     'name' => $request->input('name'),
@@ -90,15 +89,13 @@ class GestionProfilController extends Controller
                     'categorie' => $request['categorie'],
                 ]
             );
-            $queries = DB::getQueryLog();
-            var_dump($queries);
+//            $queries = DB::getQueryLog(); //database debug
+//            var_dump($queries);
             return redirect('gestionProfil')->with('sukces', 'Profil mis à jour.');
         } elseif (isset($_POST['supprimer']) && $request->input('id') === Auth::user()->id) {
-            var_dump('test suppression');
             DB::table('users')->where('id', '=', $request->input('id'))->delete();
             return view('welcome');;
         } else {
-            var_dump('test rien');
             return redirect('home');
         }
 

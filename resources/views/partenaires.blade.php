@@ -19,7 +19,7 @@
                                 @if(session('sukces'))<p style="color:red">{{session('sukces')}}</p>@endif
                                 {{--                            photo--}}
                                 <div class="form-group row">
-                                    <input id="photo" type="file"
+                                    <input id="photo" type="file" required="required"
                                            class="form-control @error('photo') is-invalid @enderror" name="photo"
                                            autocomplete="photo">
                                     @error('titre')
@@ -70,7 +70,9 @@
                         <div class="col-md-12">
                             <img src="../img/partenaires/{{$partenaire->lien_image}}"
                                  style="height:auto; width:100%; margin: 1em auto">
+                            @if(!($partenaire->lien_site === 'pas_de_lien'))
                             <a href="{{$partenaire->lien_site}}">{{$partenaire->lien_site}}</a>
+                            @endif
                             @if((Auth::check() && Auth::User()->admin === 1))
                                 <form method="POST" action="{{ route('partenaires') }}" enctype="multipart/form-data">
                                     @csrf

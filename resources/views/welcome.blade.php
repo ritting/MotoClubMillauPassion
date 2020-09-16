@@ -92,6 +92,7 @@
                     @if(Auth::check() && Auth::User()->verifie === 1)<a class="nav-link" href="{{ url('/menbres') }}">Menbres</a>@endif
                     <a class="nav-link" href="{{ url('/reglement') }}">Règlement</a>
                     <a class="nav-link" href="{{ url('/partenaires') }}">Nos partenaires</a>
+                    <a class="nav-link" href="{{ url('/photos') }}">Photos</a>
                     <a class="nav-link" href="{{ url('/apropos') }}">A propos de nous</a>
                     @if(Auth::check() && Auth::User()->admin === 1)<a class="nav-link" href="{{ url('/ajoutActu') }}">Publier une actualité</a>@endif
                 </div>

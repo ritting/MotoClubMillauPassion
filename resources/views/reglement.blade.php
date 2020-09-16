@@ -125,7 +125,6 @@
                         @else
                         <div class="col-md-12">
                             <p>Modifié le {{strftime("%A %d %B %Y", strtotime($reglement->created_at))}}</p>
-                            <br>
                             <h2>{{$reglement->article}}</h2>
                             <div align=Justify>
                                 <?php echo str_replace('<br />', '<br/>', nl2br($reglement->texte)) ?>

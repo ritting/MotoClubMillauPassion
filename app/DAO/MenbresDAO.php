@@ -10,7 +10,7 @@ class MenbresDAO
 
     public function getAllMenbres()
     {
-        $result = DB::table('users')->orderBy('id', 'desc')->paginate(2);
+        $result = DB::table('users')->orderBy('id', 'desc')->paginate(10);
         return $result;
 //        $result = DB::table('users')->orderBy('id', 'desc')->get();
 //

@@ -5,7 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">{{ __('Ajouter une actualité') }}</div>
+                    <div class="card-header">@if(!isset($actu)){{ __('Ajouter une actualité') }}@endif
+                        @if(isset($actu)){{ __('Modifier une actualité') }}@endif</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('ajoutActu') }}" enctype="multipart/form-data">
                             @csrf
@@ -64,11 +65,11 @@
                                     <input id="photo1" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo1" autocomplete="photo">
                                     <input id="photo2" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo2" autocomplete="photo">
                                     <input id="photo3" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo3" autocomplete="photo">
-{{--                                    @error('photo')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
+                                    @error('photo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
 
                                 </div>
                             </div>
